@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.joseph'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    //third party
+    implementation 'javax.inject:javax.inject:1'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.14'
+    implementation 'com.github.spullara.mustache.java:compiler:0.9.10'
+    implementation 'joda-time:joda-time:2.12.7'
+    implementation 'javax.ws.rs:javax.ws.rs-api:2.1.1'
+    implementation 'commons-codec:commons-codec:1.19.0'
+    implementation 'org.glassfish.hk2:hk2:3.1.1'
+    implementation 'org.apache.httpcomponents:httpmime:4.5.1'
+    implementation 'com.amazonaws:aws-java-sdk-sqs:1.10.37'
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.10.37'
+    implementation 'com.amazonaws:amazon-sqs-java-extended-client-lib:1.0.1'
+    implementation 'commons-io:commons-io:2.4'
+    implementation 'org.apache.commons:commons-lang3:3.5'
+    implementation 'org.slf4j:slf4j-api:1.7.13'
+    implementation 'org.mongodb.morphia:morphia:1.0.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.4'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
