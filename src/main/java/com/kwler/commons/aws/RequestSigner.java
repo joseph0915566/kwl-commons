@@ -10,12 +10,12 @@ import java.util.Properties;
 
 import javax.inject.Inject;
 
+import com.amazonaws.regions.Region;
+import com.amazonaws.util.SdkHttpUtils;
 import com.kwler.commons.cryptography.DigestService;
 import com.kwler.commons.cryptography.HMacService;
 import com.kwler.commons.encoding.EncoderService;
 import com.kwler.commons.http.model.HTTPMethod;
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.utils.http.SdkHttpUtils;
 
 /**
  * 
@@ -74,7 +74,7 @@ public class RequestSigner {
 		String dateString = datetimeString.substring(0, 8);        
         String credentialScope = dateString + "/" + region + "/" + awsServiceName + "/aws4_request";
         
-    	String baseString = method + NEWLINE + SdkHttpUtils.urlEncodeIgnoreSlashes(uri) + NEWLINE;
+    	String baseString = method + NEWLINE + SdkHttpUtils.urlEncode(uri, false) + NEWLINE;
     	
     	//query params processing
     	if(queryParams != null && !queryParams.isEmpty()){

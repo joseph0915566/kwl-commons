@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
 group = 'com.joseph'
@@ -34,6 +34,11 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-test {
-    useJUnitPlatform()
+jar {
+    archiveBaseName.set('kwl-commons')
+    archiveVersion.set('1.0.0')
+    manifest {
+        attributes 'Implementation-Title': 'Kwl Library',
+                'Implementation-Version': archiveVersion
+    }
 }
